@@ -1,0 +1,32 @@
+[
+    {
+        "caretX": 1,
+        "caretY": 22,
+        "filename": "C:/Users/23123/Desktop/实验一/elevator.cpp",
+        "focused": false,
+        "isOpen": true,
+        "leftChar": 1,
+        "order": 2,
+        "topLine": 1
+    },
+    {
+        "caretX": 4,
+        "caretY": 24,
+        "filename": "C:/Users/23123/Desktop/实验一/main.cpp",
+        "focused": true,
+        "isOpen": true,
+        "leftChar": 1,
+        "order": 0,
+        "topLine": 4
+    },
+    {
+        "caretX": 12,
+        "caretY": 37,
+        "filename": "C:/Users/23123/Desktop/实验一/elevator.h",
+        "focused": false,
+        "isOpen": true,
+        "leftChar": 1,
+        "order": 1,
+        "topLine": 31
+    }
+]
