@@ -1,0 +1,44 @@
+# Project: 实验二
+# Makefile created by Red Panda C++ 2.20
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = 实验二_private.res
+OBJ      = main.o person.o advelevator.o elevator.o $(RES)
+LINKOBJ  = main.o person.o advelevator.o elevator.o 实验二_private.res
+CLEANOBJ  =  main.o person.o advelevator.o elevator.o  实验二_private.res 实验二.exe
+LIBS     =  -s -static
+INCS     =  
+CXXINCS  =  
+BIN      = 实验二.exe
+CXXFLAGS = $(CXXINCS)  -O2 -pipe
+CFLAGS   = $(INCS)  -O2 -pipe
+RM       = del /q /f
+WINDRESFLAGS  = 
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	-$(RM) $(CLEANOBJ) > NUL 2>&1
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp elevator.h person.h advelevator.h
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+person.o: person.cpp person.h
+	$(CPP) -c person.cpp -o person.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+advelevator.o: advelevator.cpp elevator.h person.h advelevator.h
+	$(CPP) -c advelevator.cpp -o advelevator.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+elevator.o: elevator.cpp elevator.h
+	$(CPP) -c elevator.cpp -o elevator.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+实验二_private.res: 实验二_private.rc 
+	$(WINDRES) -i 实验二_private.rc --input-format=rc -o 实验二_private.res -O coff $(WINDRESFLAGS) 
+
