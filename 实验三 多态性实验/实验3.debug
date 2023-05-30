@@ -1,0 +1,23 @@
+{
+    "breakpoints": [
+        {
+            "breakpoint_type": 0,
+            "condition": "",
+            "enabled": true,
+            "filename": "technicist.cpp",
+            "line": 4,
+            "timestamp": "1685427735110"
+        },
+        {
+            "breakpoint_type": 0,
+            "condition": "",
+            "enabled": true,
+            "filename": "main.cpp",
+            "line": 33,
+            "timestamp": "1685430094381"
+        }
+    ],
+    "timestamp": "1685433624557",
+    "watchvars": [
+    ]
+}

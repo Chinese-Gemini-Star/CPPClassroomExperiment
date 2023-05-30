@@ -1,0 +1,50 @@
+# Project: 实验3
+# Makefile created by Red Panda C++ 2.20
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = 实验3_private.res
+OBJ      = main.o salseperson.o report.o staff.o manager.o technicist.o $(RES)
+LINKOBJ  = main.o salseperson.o report.o staff.o manager.o technicist.o 实验3_private.res
+CLEANOBJ  =  main.o salseperson.o report.o staff.o manager.o technicist.o  实验3_private.res 实验3.exe
+LIBS     =  -s -static
+INCS     =  
+CXXINCS  =  
+BIN      = 实验3.exe
+CXXFLAGS = $(CXXINCS)  -O2 -pipe
+CFLAGS   = $(INCS)  -O2 -pipe
+RM       = del /q /f
+WINDRESFLAGS  = 
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	-$(RM) $(CLEANOBJ) > NUL 2>&1
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp salseperson.h manager.h technicist.h staff.h report.h
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+salseperson.o: salseperson.cpp salseperson.h
+	$(CPP) -c salseperson.cpp -o salseperson.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+report.o: report.cpp staff.h report.h
+	$(CPP) -c report.cpp -o report.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+staff.o: staff.cpp staff.h
+	$(CPP) -c staff.cpp -o staff.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+manager.o: manager.cpp manager.h staff.h
+	$(CPP) -c manager.cpp -o manager.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+technicist.o: technicist.cpp technicist.h staff.h
+	$(CPP) -c technicist.cpp -o technicist.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+实验3_private.res: 实验3_private.rc 
+	$(WINDRES) -i 实验3_private.rc --input-format=rc -o 实验3_private.res -O coff $(WINDRESFLAGS) 
+
